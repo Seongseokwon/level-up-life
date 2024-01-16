@@ -12,13 +12,13 @@ datasource db {
 
 model User {
   id Int @id @default(autoincrement())
-  email String
+  email String @unique
   nickname String @unique
   password String
-  createdAt DateTime
+  createdAt DateTime @default(now())
   level Level @relation(fields: [levelId], references: [id])
-  levelId Int @unique @default(0)
-  curExperience Int
+  levelId Int @unique @default(1)
+  curExperience Int @default(0)
   todos Todo[]
 }
 

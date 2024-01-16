@@ -7,9 +7,9 @@ CREATE TABLE "User" (
     "email" TEXT NOT NULL,
     "nickname" TEXT NOT NULL,
     "password" TEXT NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL,
-    "levelId" INTEGER NOT NULL DEFAULT 0,
-    "curExperience" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "levelId" INTEGER NOT NULL DEFAULT 1,
+    "curExperience" INTEGER NOT NULL DEFAULT 0,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -36,6 +36,9 @@ CREATE TABLE "Todo" (
 
     CONSTRAINT "Todo_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_nickname_key" ON "User"("nickname");

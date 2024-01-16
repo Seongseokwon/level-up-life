@@ -3,8 +3,9 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 function setExperienceOfLevel(level: number) {
-  return 1 * level ** 2 + 3 * level + 2;
+  return level ** 2 + 3 * level + 2;
 }
+
 
 async function seedData() {
   let i = 1;
@@ -17,6 +18,16 @@ async function seedData() {
     });
     console.log(res);
   }
+
+  const res = await prisma.user.create({
+    data : {
+     email: 'test@test.com',
+        nickname: 'test11',
+        password: 'gkfldh94',
+    }
+  });
+
+  console.log(res);
 }
 
 async function main() {
