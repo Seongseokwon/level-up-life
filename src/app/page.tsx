@@ -1,7 +1,10 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 
-export default function Home() {
+export default async function Home() {
+  const res = await fetch(`http://localhost:3000/api/level`, {
+
+  }).then(res => res.json());
   return (
     <main className={styles.main}>
       <div className={styles.description}>
