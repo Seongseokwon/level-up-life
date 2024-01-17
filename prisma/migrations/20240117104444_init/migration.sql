@@ -31,7 +31,7 @@ CREATE TABLE "Todo" (
     "priority" "PRIORITY" NOT NULL DEFAULT 'LOW',
     "userId" INTEGER NOT NULL,
     "completed" BOOLEAN NOT NULL DEFAULT false,
-    "createdAt" TIMESTAMP(3) NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Todo_pkey" PRIMARY KEY ("id")
@@ -42,9 +42,6 @@ CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_nickname_key" ON "User"("nickname");
-
--- CreateIndex
-CREATE UNIQUE INDEX "User_levelId_key" ON "User"("levelId");
 
 -- AddForeignKey
 ALTER TABLE "User" ADD CONSTRAINT "User_levelId_fkey" FOREIGN KEY ("levelId") REFERENCES "Level"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
