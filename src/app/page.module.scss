@@ -2,7 +2,49 @@
   margin-bottom: 20px;
   cursor: pointer;
 }
+
 .main-title {
   font-size: 36px;
   font-weight: 500;
+}
+
+
+.logo-section{
+  flex-grow: .7;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    font-size: var(--h1-size);
+  }
+}
+
+.main-section{
+  flex-grow: 2;
+  width: 100%;
+
+  .instructions_msg {
+    font-size: var(--ft-small);
+    color: #bebdbd;
+    a {
+      text-decoration: none;
+      color: var(--primary-dark-100);
+    }
+  }
+}
+
+
+
+.simple-login-section{
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    font-size: 22px;
+  }
 }

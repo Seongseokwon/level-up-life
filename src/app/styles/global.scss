@@ -3,8 +3,28 @@
 @import './reset.scss';
 @import './animation.scss';
 
+
+:root {
+  /** font size **/
+  --h1-size: 32px;
+  --h2-size: 28px;
+  --h3-size: 24px;
+
+
+  --ft-small: 12px;
+  --ft-medium: 14px;
+  --ft-basic: 16px;
+  --ft-large: 18px;
+  /** color **/
+
+  --primary: #3ff3a8;
+  --primary-dark-100: #36d393;
+  --primary-light-100: #3cf3a7;
+}
+
+
 body {
-  font-size: 16px;
+  font-size: var(--ft-basic);
   box-sizing: border-box;
   background-color: #c7c7c7;
 
