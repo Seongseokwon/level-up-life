@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+@import './reset.scss';
+@import './animation.scss';
+
+body {
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #c7c7c7;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.root-container {
+  box-sizing: border-box;
+
+  background-color: #ececec;
+  width: 400px;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
