@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from '../../page.module.scss';
 import Input from "@/components/ui/input/Input";
 import Form from "@/components/ui/form/Form";
+import Button from "@/components/ui/button/Button";
 
 export default function LoginPage() {
     return <Layout justifyContent={'space-around'}>
@@ -21,17 +22,18 @@ export default function LoginPage() {
         </section>
         <main className={`${styles['main-section']}`}>
             <Form formTitle='로그인'>
-                <Input type='text' id='email' name='email' placeholder='이메일' />
+                <Input type='text' id='email' name='email' placeholder='이메일'/>
                 <Input type='password' id='password' name='password' placeholder='비밀번호'/>
                 <p className={`${styles['instructions_msg']}`}>계정이 없으신가요? <Link href={'/auth/signup'}>회원가입</Link></p>
-                <button type='button'>로그인</button>
+
+                <Button type={'button'} colorStyle={"primary"}>로그인</Button>
             </Form>
         </main>
         <section className={`${styles['simple-login-section']}`}>
-            <h3>간편 로그인</h3>
-            <div>
-                <button type="button">비회원 로그인</button>
-                <button type="button">구글 로그인</button>
+            <h4>간편 로그인</h4>
+            <div className={'flex-box j_c'}>
+                <Button type="button" size={'lg'}>비회원 로그인</Button>
+                <Button type="button" size={'lg'}>구글 로그인</Button>
             </div>
         </section>
     </Layout>

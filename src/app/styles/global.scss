@@ -19,7 +19,10 @@
 
   --primary: #3ff3a8;
   --primary-dark-100: #36d393;
-  --primary-light-100: #3cf3a7;
+  --primary-dark-300: #2aaf7a;
+  --primary-light-100: #82c9a8;
+
+  --error: #e84c4c
 }
 
 
@@ -44,3 +47,21 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+
+//.flex-box {
+//  display: flex;
+//  flex-direction: column;
+//
+//  &.j_c {
+//    justify-content: center;
+//  }
+//
+//  &.j_sb {
+//    justify-content: space-between;
+//  }
+//
+//  &.j_sa {
+//    justify-content: space-around;
+//  }
+//}
