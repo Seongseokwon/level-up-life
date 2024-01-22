@@ -58,3 +58,8 @@
     justify-content: space-around;
   }
 }
+
+.error-msg {
+  color: var(--error);
+  font-size: var(--ft-medium);
+}

@@ -1,6 +1,7 @@
 import {PrismaClient} from "@prisma/client";
 import {NextResponse} from "next/server";
-import {emailValidator, passwordValidator} from "@/app/(utils)/validator";
+import {emailValidator, passwordValidator} from "@/utils/validator";
+import {encryption} from "@/utils/encrypt";
 
 
 export async function POST(req: Request) {
@@ -10,7 +11,8 @@ export async function POST(req: Request) {
 
         if(!emailValidator(email)) {
             return new NextResponse('Email Format Error', {
-                status: 400
+                status: 400,
+                statusText: 'Email format error'
             })
         }
 
@@ -22,13 +24,15 @@ export async function POST(req: Request) {
 
         if(emailAlreadyExist) {
             return new NextResponse('Email Already Exist', {
-                status: 400
+                status: 400,
+                statusText: 'Email already exist'
             })
         }
 
         if(!passwordValidator(password)) {
             return new NextResponse('Password Format Error', {
-                status: 400
+                status: 400,
+                statusText:'Password format error'
             })
         }
 
@@ -38,20 +42,22 @@ export async function POST(req: Request) {
             }
         })
 
-        if(emailAlreadyExist) {
+        if(nicknameAlreadyExist) {
             return new NextResponse('Nickname Already Exist', {
-                status: 400
+                status: 400,
+                statusText: 'Nickname already exist'
             })
         }
 
+        const encryptPassword = await encryption(password);
         const res = await prisma.user.create({
             data: {
                 email,
-                password,
+                password: encryptPassword,
                 nickname
             }
         })
-        return NextResponse.json({message: 'Login Success'});
+        return NextResponse.json({message: 'Signup Success'});
     } catch (e) {
         console.log(e);
         return new NextResponse('Server Error', {

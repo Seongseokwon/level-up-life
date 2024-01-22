@@ -9,9 +9,13 @@ interface InputOptionProps {
     value?: string | number | readonly string[]
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
-interface InputProps extends InputOptionProps{};
+
+interface InputProps extends InputOptionProps {
+};
 export default function Input({id, type, name, placeholder, value, onChange}: InputProps) {
+    const inputClasses = `${styles['input']}`
     return (
-        <input className={`${styles['input']}`} type={type} id={id} name={name} placeholder={placeholder}/>
+        <input className={inputClasses} type={type} id={id} name={name} value={value} placeholder={placeholder}
+               onChange={onChange}/>
     )
 }

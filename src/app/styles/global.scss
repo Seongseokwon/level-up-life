@@ -48,7 +48,10 @@ body {
   justify-content: center;
 }
 
-
+.error-msg {
+  color: var(error);
+  font-size: var(--ft-medium);
+}
 //.flex-box {
 //  display: flex;
 //  flex-direction: column;
