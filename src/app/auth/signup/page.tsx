@@ -1,6 +1,6 @@
 'use client';
 
-import Layout from "@/components/layout/Layout";
+import MainLayout from "@/components/layout/MainLayout";
 import Button from "@/components/ui/button/Button";
 import Form from "@/components/ui/form/Form";
 import Input from "@/components/ui/input/Input";
@@ -77,22 +77,23 @@ export default function SignupPage() {
 
         const finished = error.trim().length === 0;
         if (!finished) return;
-        const encryptInfo = {...information, password: information.password + process.env.NEXT_PUBLIC_ENCRYPT_SALT}
+
 
         const res = await fetch('http://localhost:3000/api/auth/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(encryptInfo)
+            body: JSON.stringify(information)
         });
         if (!res.ok) {
             // status text 팝업 보여주기
             console.log('Error');
+            return;
         }
         router.push('/auth/login');
     }
-    return <Layout>
+    return <MainLayout>
         <section className={`${styles['logo-section']}`}>
             <Image
                 src="/level-up-life-logo.png"
@@ -122,5 +123,5 @@ export default function SignupPage() {
             </Form>
         </main>
 
-    </Layout>
+    </MainLayout>
 }
