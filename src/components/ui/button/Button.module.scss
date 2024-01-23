@@ -4,6 +4,11 @@
   height: 40px;
   border-radius: 7px;
   cursor: pointer;
+
+  &.xsm {
+    width: 50px;
+  }
+
   &.sm {
     width: 70px;
   }
