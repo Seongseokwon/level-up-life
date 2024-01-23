@@ -48,23 +48,18 @@ body {
   justify-content: center;
 }
 
-.error-msg {
-  color: var(error);
-  font-size: var(--ft-medium);
+.progress-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  &.completed {
+    border: 1px solid #3ade9b;
+    background-color: #3ade9b;
+  }
+
+  &.failed {
+    border: 1px solid #dc2525;
+    background-color: #dc2525;
+  }
 }
-//.flex-box {
-//  display: flex;
-//  flex-direction: column;
-//
-//  &.j_c {
-//    justify-content: center;
-//  }
-//
-//  &.j_sb {
-//    justify-content: space-between;
-//  }
-//
-//  &.j_sa {
-//    justify-content: space-around;
-//  }
-//}

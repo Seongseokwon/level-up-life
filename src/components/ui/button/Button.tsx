@@ -12,12 +12,13 @@ interface ButtonOptionProps {
     id?: string,
     type: ButtonType,
     name?: string,
-    children: ReactNode
+    children: ReactNode,
+    onClick?: () => void
 }
 interface ButtonProps extends ButtonOptionProps, ButtonStyleProps {}
 
 
-export default function Button({type, children, size, colorStyle}: ButtonProps) {
+export default function Button({type, children, size, colorStyle, onClick}: ButtonProps) {
 
     const buttonClasses = `
         ${styles.button} 
@@ -26,6 +27,6 @@ export default function Button({type, children, size, colorStyle}: ButtonProps) 
     `;
 
     return (
-        <button className={buttonClasses} type={type}>{children}</button>
+        <button className={buttonClasses} type={type} onClick={onClick}>{children}</button>
     )
 }

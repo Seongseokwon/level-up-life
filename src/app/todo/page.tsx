@@ -2,7 +2,7 @@
 
 import {useState} from "react";
 import DivisionLayout from "@/components/layout/DivisionLayout";
-import Calendar from "@/components/ui/calendar/Calendar";
+import Calendar from "@/components/calendar/Calendar";
 import TodoList from "@/components/todo/TodoList";
 
 export default function TodoPage () {
@@ -14,8 +14,8 @@ export default function TodoPage () {
     return <DivisionLayout>
         {
             isCalendarMode ?
-                <Calendar toggleViewMode={toggleViewMode} /> :
-                <TodoList toggleViewMode={toggleViewMode} />
+                <Calendar toggleViewMode={toggleViewMode}/> :
+                <TodoList toggleViewMode={toggleViewMode}/>
         }
 
     </DivisionLayout>

@@ -1,10 +1,12 @@
 import styles from './Calendar.module.scss';
 import {useEffect, useState} from "react";
+import Button from "@/components/ui/button/Button";
 
 interface CalendarProps {
     toggleViewMode: () => void;
 }
 
+const dayOfTheWeek = ['일', '월', '화', '수', '목', '금', '토'];
 export default function Calendar({toggleViewMode}: CalendarProps) {
     const [monthly, setMonthly] = useState<number[][]>([]);
     const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -44,7 +46,7 @@ export default function Calendar({toggleViewMode}: CalendarProps) {
             month = currentDate.getMonth() + 1;
         }
 
-        console.log('YEAR :', year,'MONTH :', month)
+        console.log('YEAR :', year, 'MONTH :', month)
         console.log(new Date(year, month, 1));
     }
 
@@ -54,20 +56,39 @@ export default function Calendar({toggleViewMode}: CalendarProps) {
     }, []);
 
     return <div className={`${styles['calendar-container']}`}>
-        <nav className={`${styles['calendar-header']}`}>
+        <header className={`${styles['calendar-header']}`}>
             <button type='button' onClick={() => changeMonth(selectedDate, 'prev')}> prev</button>
-            { selectedDate ? selectedDate.getFullYear() + '년' + selectedDate.getMonth()+ 1 +'월' : ''}
+            {selectedDate ? selectedDate.getFullYear() + '년' + selectedDate.getMonth() + 1 + '월' : ''}
             <button type='button' onClick={() => changeMonth(selectedDate, 'next')}> next</button>
-        </nav>
+        </header>
         <main className={`${styles['calendar-body']}`}>
-            {monthly.map((week) =>
-                week.map((day, i) =>
-                    <div key={i}>{day}</div>
+            <section className={`${styles['calendar-grid']}`}>
+                {dayOfTheWeek.map((day, i) => <div className={`${styles['calendar-day']}`} key={i}>{day}</div>)}
+                {monthly.map((week) =>
+                    week.map((day, i) =>
+                        <div className={`${styles['calendar-day']}`} key={i}>
+                            {day === 0 ? '' : <>{day}
+                                <div className={'progress-circle completed'}></div>
+                            </>}
+
+                        </div>
+                    )
                 )
-            )
-            }
+                }
+            </section>
+            <section className={`${styles['calendar-summary']}`}>
+                <div className={`${styles['summary-item']}`}>
+                    <div className='progress-circle completed'></div>
+                    달성
+                </div>
+                <div className={`${styles['summary-item']}`}>
+                    <div className='progress-circle failed'></div>
+                    미달
+                </div>
+            </section>
         </main>
-        <section>todo summary</section>
-        <button type='button' onClick={viewChange}>리스트 보기</button>
+
+
+        <Button type='button' onClick={viewChange} size='xlg'>리스트 보기</Button>
     </div>
 }
