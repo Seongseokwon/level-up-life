@@ -1,0 +1,26 @@
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  &.completed {
+    border: 1px solid #3ade9b;
+    background-color: #3ade9b;
+  }
+
+  &.failed, &.high {
+    border: 1px solid #dc2525;
+    background-color: #dc2525;
+  }
+
+  &.medium {
+    border: 1px solid #f58d14;
+    background-color: #f58d14;
+  }
+
+  &.not-yet, &.low {
+    border: 1px solid #e7e7e7;
+    background-color: #e7e7e7;
+  }
+
+}
