@@ -5,10 +5,10 @@ export const enum PRIORITY {
 }
 
 export type Todo = {
-    id: number;
+    id: string;
     title: string;
     description?: string;
     priority :PRIORITY
     completed: boolean
-    createdAt: Date;
+    createdAt: string | Date;
 }

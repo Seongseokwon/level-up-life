@@ -15,6 +15,7 @@
   --ft-medium: 14px;
   --ft-basic: 16px;
   --ft-large: 18px;
+  --ft-xlarge: 24px;
   /** color **/
 
   --primary: #3ff3a8;
@@ -22,6 +23,7 @@
   --primary-dark-300: #2aaf7a;
   --primary-light-100: #82c9a8;
 
+  --header-color: #29ee9d;
   --error: #e84c4c
 }
 
@@ -47,24 +49,3 @@ body {
   align-items: center;
   justify-content: center;
 }
-
-.error-msg {
-  color: var(error);
-  font-size: var(--ft-medium);
-}
-//.flex-box {
-//  display: flex;
-//  flex-direction: column;
-//
-//  &.j_c {
-//    justify-content: center;
-//  }
-//
-//  &.j_sb {
-//    justify-content: space-between;
-//  }
-//
-//  &.j_sa {
-//    justify-content: space-around;
-//  }
-//}

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image'
-import Layout from "@/components/layout/Layout";
+import MainLayout from "@/components/layout/MainLayout";
 import {useRouter} from "next/navigation";
 import {useEffect, useState} from "react";
 import styles from './page.module.scss';
@@ -27,7 +27,7 @@ export default function Home() {
     }
 
     return (
-        <Layout>
+        <MainLayout>
             <section role='presentation' className={`${styles['main-logo']} fade-box ${fade}`} onClick={onClick}>
                 <Image
                     src="/level-up-life-logo.png"
@@ -42,6 +42,6 @@ export default function Home() {
                     Level Up Life
                 </h1>
             </section>
-        </Layout>
+        </MainLayout>
     )
 }
