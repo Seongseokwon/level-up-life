@@ -2,7 +2,7 @@ import {Fragment, ReactNode} from "react";
 import styles from './Layout.module.scss';
 import {LayoutStylesProps} from "@/components/layout/MainLayout";
 import Header from "@/components/header/Header";
-import BottomNavigation from "@/components/bottom-navigation/BottomNavigation";
+import BottomNavigation from "@/components/bottomNavigation/BottomNavigation";
 
 interface DivisionLayoutProps extends LayoutStylesProps {
     children: ReactNode
