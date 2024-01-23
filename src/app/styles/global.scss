@@ -15,6 +15,7 @@
   --ft-medium: 14px;
   --ft-basic: 16px;
   --ft-large: 18px;
+  --ft-xlarge: 24px;
   /** color **/
 
   --primary: #3ff3a8;
@@ -22,6 +23,7 @@
   --primary-dark-300: #2aaf7a;
   --primary-light-100: #82c9a8;
 
+  --header-color: #29ee9d;
   --error: #e84c4c
 }
 
@@ -46,25 +48,4 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.progress-circle {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-
-  &.completed {
-    border: 1px solid #3ade9b;
-    background-color: #3ade9b;
-  }
-
-  &.failed {
-    border: 1px solid #dc2525;
-    background-color: #dc2525;
-  }
-
-  &.not-yet {
-    border: 1px solid #e7e7e7;
-    background-color: #e7e7e7;
-  }
 }

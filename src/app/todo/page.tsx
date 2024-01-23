@@ -3,9 +3,10 @@
 import {useState} from "react";
 import DivisionLayout from "@/components/layout/DivisionLayout";
 import Calendar from "@/components/calendar/Calendar";
-import TodoList from "@/components/todo/TodoList";
+import TodoTemplate from "@/components/todo/TodoTemplate";
 
-export default function TodoPage () {
+export default function TodoPage() {
+    const [selectedDate, setSelectedDate] = useState<Date>(new Date());
     const [isCalendarMode, setIsCalendarMode] = useState<boolean>(true)
     const toggleViewMode = () => {
         setIsCalendarMode((prev) => !prev);
@@ -14,8 +15,12 @@ export default function TodoPage () {
     return <DivisionLayout>
         {
             isCalendarMode ?
-                <Calendar toggleViewMode={toggleViewMode}/> :
-                <TodoList toggleViewMode={toggleViewMode}/>
+                <Calendar toggleViewMode={() => setIsCalendarMode((prev) => !prev)}
+                          changeSelectedDate={(date: Date) => setSelectedDate((prev) => date)}
+                          selectedDate={selectedDate}
+                /> :
+                <TodoTemplate toggleViewMode={() => setIsCalendarMode((prev) => !prev)}
+                          selectedDate={selectedDate}/>
         }
 
     </DivisionLayout>
