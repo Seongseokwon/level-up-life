@@ -17,8 +17,13 @@
     width: 100%;
     padding: 20px 10px;
     box-sizing: border-box;
-    background-color: #3ade9b;
+    background-color: var(--header-color);
     border-radius: 10px;
+
+    h2 {
+      font-size: var(--ft-large);
+      font-weight: bold;
+    }
   }
 
   .calendar-body {

@@ -1,5 +1,5 @@
 import styles from './Calendar.module.scss';
-import ProgressCircle from "@/components/progress-circle/ProgressCircle";
+import Circle from "@/components/Circle/Circle";
 
 interface CalendarDayProps {
     day: number
@@ -22,7 +22,7 @@ export default function CalendarDay({day, selectedDate, currentShowMonth, select
     return <div role='presentation' className={calendarDayClasses} onClick={() => selectDateChange(day)}>
         {day !== 0 ? <>
                 {day}
-                <ProgressCircle progressStatus='not-yet'/>
+                <Circle circleStatus='not-yet'/>
             </>
             : ''}
 

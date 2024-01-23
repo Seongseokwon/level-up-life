@@ -1,17 +1,18 @@
 import styles from './Calendar.module.scss';
 import {useEffect, useState} from "react";
 import Button from "@/components/ui/button/Button";
-import ProgressCircle from "@/components/progress-circle/ProgressCircle";
+import Circle from "@/components/Circle/Circle";
 import CalendarDay from "@/components/calendar/CalendarDay";
 
 interface CalendarProps {
+    selectedDate: Date;
+    changeSelectedDate: (date: Date) => void;
     toggleViewMode: () => void;
 }
 
 const dayOfTheWeek = ['일', '월', '화', '수', '목', '금', '토'];
-export default function Calendar({toggleViewMode}: CalendarProps) {
+export default function Calendar({selectedDate, toggleViewMode, changeSelectedDate}: CalendarProps) {
     const [monthly, setMonthly] = useState<number[][]>([]);
-    const [selectedDate, setSelectedDate] = useState<Date>(new Date());
     const [month, setMonth] = useState<Date>(new Date());
     const viewChange = () => {
         toggleViewMode();
@@ -61,7 +62,7 @@ export default function Calendar({toggleViewMode}: CalendarProps) {
     const selectDateChange = (day: number) => {
         //현재 보여지고 있는 달력의 클릭된 날짜로 선택된 날짜 변경
         console.log(day);
-        setSelectedDate(() => new Date(month.getFullYear(), month.getMonth(), day));
+        changeSelectedDate(new Date(month.getFullYear(), month.getMonth(), day));
     }
 
     useEffect(() => {
@@ -71,7 +72,7 @@ export default function Calendar({toggleViewMode}: CalendarProps) {
     return <div className={`${styles['calendar-container']}`}>
         <header className={`${styles['calendar-header']}`}>
             <button type='button' onClick={() => changeMonth(month, 'prev')}> prev</button>
-            {month ? month.getFullYear() + '년' + (month.getMonth() + 1) + '월' : ''}
+            <h2>{month ? month.getFullYear() + '년 ' + (month.getMonth() + 1) + '월' : ''}</h2>
             <button type='button' onClick={() => changeMonth(month, 'next')}> next</button>
         </header>
         <main className={`${styles['calendar-body']}`}>
@@ -92,10 +93,10 @@ export default function Calendar({toggleViewMode}: CalendarProps) {
             </section>
             <section className={`${styles['calendar-summary']}`}>
                 <div className={`${styles['summary-item']}`}>
-                    <ProgressCircle progressStatus='completed'>달성</ProgressCircle>
+                    <Circle circleStatus='completed'>달성</Circle>
                 </div>
                 <div className={`${styles['summary-item']}`}>
-                    <ProgressCircle progressStatus='failed'>미달</ProgressCircle>
+                    <Circle circleStatus='failed'>미달</Circle>
                 </div>
             </section>
         </main>
