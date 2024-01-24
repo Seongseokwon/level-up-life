@@ -1,6 +1,6 @@
 import {Todo} from "@/type/Todo";
 import styles from './Todo.module.scss';
-import Circle from "@/components/Circle/Circle";
+import Circle from "@/components/circle/Circle";
 import Button from "../ui/button/Button";
 
 interface TodoItemProps {

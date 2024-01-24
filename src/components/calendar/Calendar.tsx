@@ -1,7 +1,7 @@
 import styles from './Calendar.module.scss';
 import {useEffect, useState} from "react";
 import Button from "@/components/ui/button/Button";
-import Circle from "@/components/Circle/Circle";
+import Circle from "@/components/circle/Circle";
 import CalendarDay from "@/components/calendar/CalendarDay";
 
 interface CalendarProps {

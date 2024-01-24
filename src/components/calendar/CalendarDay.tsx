@@ -1,5 +1,5 @@
 import styles from './Calendar.module.scss';
-import Circle from "@/components/Circle/Circle";
+import Circle from "@/components/circle/Circle";
 
 interface CalendarDayProps {
     day: number

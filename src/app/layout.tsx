@@ -14,6 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <div id='portal'></div>
         <div className={'root-container'}>
           {children}
         </div>
