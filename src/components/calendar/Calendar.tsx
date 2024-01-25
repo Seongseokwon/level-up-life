@@ -13,7 +13,7 @@ interface CalendarProps {
 const dayOfTheWeek = ['일', '월', '화', '수', '목', '금', '토'];
 export default function Calendar({selectedDate, toggleViewMode, changeSelectedDate}: CalendarProps) {
     const [monthly, setMonthly] = useState<number[][]>([]);
-    const [month, setMonth] = useState<Date>(new Date());
+    const [month, setMonth] = useState<Date>(new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1));
     const viewChange = () => {
         toggleViewMode();
     }

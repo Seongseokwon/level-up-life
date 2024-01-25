@@ -1,4 +1,16 @@
 .bottom-nav-container {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  height: 50px;
+  border-radius: 16px;
+  box-sizing: border-box;
+  padding: 20px 5px;
+  background-color: #bebdbd;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

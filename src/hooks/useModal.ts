@@ -1,19 +1,25 @@
 'use client';
 import {useState} from "react";
+import {useAppSelector} from "@/lib/hooks";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "@/lib/store";
+import {closeModal, openModal} from "@/lib/slice/modal-slice";
 
 export default function useModal() {
-    const [showModal, setShowModal] = useState<boolean>(false);
+    const {isOpen} = useAppSelector((state) => state.modalReducer)
+    const dispatch = useDispatch<AppDispatch>();
 
-    const openModal = () => {
-        setShowModal(() => true);
+    const open = () => {
+        if(isOpen) return;
+        dispatch(openModal())
     };
-    const closeModal = () => {
-        setShowModal(() => false);
+    const close = () => {
+        dispatch(closeModal())
     };
 
     return {
-        openModal,
-        closeModal,
-        showModal
+        open,
+        close,
+        isOpen
     }
 }

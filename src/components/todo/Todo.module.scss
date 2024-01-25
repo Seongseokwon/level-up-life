@@ -13,7 +13,7 @@
     .selected-date {
       display: flex;
       align-items: center;
-      font-size: var(--ft-xlarge);
+      font-size: var(--ft-large);
       font-weight: bold;
       background-color: var(--header-color);
       box-sizing: border-box;
@@ -57,7 +57,7 @@
           gap: 10px;
 
           h3 {
-            font-size: var(--ft-large);
+            font-size: var(--ft-basic);
             font-weight: bold;
           }
         }
