@@ -17,7 +17,9 @@
 }
 .modal-container {
   position: fixed;
-  background-color: #816a6a;
+  background-color: #ffffff;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
   &.popup {
     width: 300px;
     height: 300px;
@@ -28,7 +30,7 @@
   &.slide-up,&.slide-down {
     bottom: 5%;
     width: 400px;
-    height: 600px;
+    height: 400px;
     animation: slideUp 0.3s ease;
   }
   &.slide-down {
@@ -54,9 +56,16 @@
       height: 50px;
       padding: 0 10px;
       flex-grow: .3;
+      border-bottom: 1px solid lightgray;
+      h2 {
+        font-size: var(--ft-xlarge);
+        font-weight: bold;
+      }
     }
     .modal-content{
       flex-grow: 2;
+      width: 100%;
+      box-sizing: border-box;
     }
     .modal-footer{
       flex-grow: .7;

@@ -5,14 +5,28 @@ import {useEffect, useState} from "react";
 
 interface SlideUpModalProps extends Omit<ModalProps, 'modalType'> {
 }
-export default function SlideUpModal({title, children, closeModal,callback}: SlideUpModalProps) {
-    const [slide, setSlide] =useState<'up' | 'down'>('up')
 
-    return <div className={`${styles['modal-container']} ${styles['slide-up']}`}>
+export default function SlideUpModal({title, children, closeModal, callback}: SlideUpModalProps) {
+    const [slide, setSlide] = useState<'up' | 'down'>('up')
+
+    useEffect(() => {
+        if (slide === 'down') {
+            setTimeout(() => {
+                closeModal();
+            }, 200)
+
+        }
+    }, [slide]);
+
+    const handleCloseModal = () => {
+        setSlide('down');
+    }
+    return <div
+        className={`${styles['modal-container']} ${slide === 'up' ? styles['slide-up'] : styles['slide-down']}`}>
         <div className={`${styles['modal']}`}>
             <header className={`${styles['modal-header']}`}>
                 <h2>{title}</h2>
-                <Button type='button' size={'xsm'} onClick={closeModal}>닫기</Button>
+                <Button type='button' size={'xsm'} onClick={handleCloseModal}>닫기</Button>
             </header>
             <main className={`${styles['modal-content']}`}>
                 {children}

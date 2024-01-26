@@ -1,0 +1,29 @@
+.todo-modal-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  gap: 10px;
+
+  textarea {
+    resize: none;
+    outline-color: var(--primary-dark-100);
+    border-radius: 12px;
+    font-size: 16px;
+    padding: 10px 3px;
+  }
+  .priority-box {
+    display: flex;
+    flex-direction: column;
+    &__title {
+      font-weight: bold;
+    }
+
+    &__content {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    width: 30%;
+  }
+
+}

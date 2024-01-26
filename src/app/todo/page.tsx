@@ -10,6 +10,7 @@ import Modal from "@/components/modal/Modal";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/lib/store";
 import {closeModal} from "@/lib/slice/modal-slice";
+import TodoCreateModal from "@/components/modal/todo/TodoCreateModal";
 
 export default function TodoPage() {
     const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -25,6 +26,9 @@ export default function TodoPage() {
     const close = () => {
         dispatch(closeModal())
     }
+
+    const addTodo = () => {
+    }
     return <DivisionLayout>
         {
             isCalendarMode ?
@@ -33,10 +37,12 @@ export default function TodoPage() {
                           selectedDate={selectedDate}
                 /> :
                 <TodoTemplate toggleViewMode={toggleViewMode}
-                          selectedDate={selectedDate}/>
+                              selectedDate={selectedDate}/>
 
         }
-        {isOpen ? <Modal title={'할 일 등록'} modalType={'slideUp'} closeModal={close}>안녕하세요</Modal>: ''}
+        {isOpen ?
+            <><Modal title={'할 일 등록'} modalType={'slideUp'} closeModal={close}><TodoCreateModal/></Modal></>
+            : ''}
 
     </DivisionLayout>
 }

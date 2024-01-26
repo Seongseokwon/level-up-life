@@ -6,7 +6,9 @@ export const todo = createSlice({
     name: 'todo',
     initialState,
     reducers: {
-        addTodo: () => {},
+        addTodo: (state,action) => {
+            console.log(action);
+        },
         updateTodo: () => {},
         deleteTodo: () => {}
     }
